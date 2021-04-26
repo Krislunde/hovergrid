@@ -1,16 +1,30 @@
 <template>
-    <div>
-        <div class="hover-btn" id="1">This is a windows 10 hoverable item</div>
-    </div>
+    <div class="hover-btn" :id="num" ref="hoverItem">{{ msg }}</div>
 </template>
 
 <script>
 export default {
     name: 'GridItem',
     props: {
-        msg: String
-    }
+        msg: String,
+        num: Number,
+    },
+    mounted() {
+        const el = this.$refs.hoverItem
 
+        el.onmouseleave = () => {
+            el.style.background = "black";
+            el.style.borderImage = null;
+        };
+
+        el.addEventListener("mousemove", (e) => {
+            const rect = e.target.getBoundingClientRect();
+            const x = e.clientX - rect.left; //x position within the element.
+            const y = e.clientY - rect.top; //y position within the element.
+            el.style.background = `radial-gradient(circle at ${x}px ${y}px , rgba(255,255,255,0.2),rgba(255,255,255,0) )`;
+            el.style.borderImage = `radial-gradient(20% 75% at ${x}px ${y}px ,rgba(255,255,255,0.7),rgba(255,255,255,0.1) ) 1 / 1px / 0px stretch `;
+        });
+    }
 }
 </script>
 
