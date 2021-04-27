@@ -13,7 +13,7 @@ export default {
         const el = this.$refs.hoverItem
 
         el.onmouseleave = () => {
-            el.style.background = "black";
+            el.style.background = "#facbba";
             el.style.borderImage = null;
         };
 
@@ -21,8 +21,8 @@ export default {
             const rect = e.target.getBoundingClientRect();
             const x = e.clientX - rect.left; //x position within the element.
             const y = e.clientY - rect.top; //y position within the element.
-            el.style.background = `radial-gradient(circle at ${x}px ${y}px , rgba(255,255,255,0.2),rgba(255,255,255,0) )`;
-            el.style.borderImage = `radial-gradient(20% 75% at ${x}px ${y}px ,rgba(255,255,255,0.7),rgba(255,255,255,0.1) ) 1 / 1px / 0px stretch `;
+            el.style.background = `radial-gradient(circle at ${x}px ${y}px , rgba(255,177,185,0.7),rgba(255,177,185,0) )`;
+            el.style.borderImage = `radial-gradient(20% 75% at ${x}px ${y}px ,rgba(255,177,185,0.7),rgba(255,177,185,0.1) ) 1 / 1px / 0px stretch `;
         });
     }
 }
@@ -34,8 +34,8 @@ export default {
     text-align: center;
     border: none;
     border-radius: 0px;
-    background: black;
-    color: white;
+    background: #facbba;
+    color: black;
     border: 1px solid transparent;
 }
 
